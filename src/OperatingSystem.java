@@ -346,7 +346,7 @@ public class OperatingSystem {
      * @return Die entsprechende virtuelle Seitennummer
      */
     private int getVirtualPageNum(int virtAdr) {
-        return (int) Math.floor(virtAdr / this.getPAGE_SIZE());
+        return virtAdr / PAGE_SIZE;
     }
 
     /**
@@ -354,7 +354,7 @@ public class OperatingSystem {
      * @return Den entsprechenden Offset zur Berechnung der realen Adresse
      */
     private int getOffset(int virtAdr) {
-        return virtAdr - this.getVirtualPageNum(virtAdr) * this.getPAGE_SIZE();
+        return virtAdr % PAGE_SIZE;
     }
 
     /**

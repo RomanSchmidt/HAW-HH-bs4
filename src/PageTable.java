@@ -154,11 +154,11 @@ public class PageTable {
      * RANDOM-Algorithmus: Zufällige Auswahl
      */
     private PageTableEntry randomAlgorithm(PageTableEntry newPte) {
-    	int rand = this.random.nextInt(pteRAMlist.size() - 1);
-        PageTableEntry pte = pteRAMlist.get(rand);
+    	int randPos = this.random.nextInt(pteRAMlist.size());
+        PageTableEntry pte = pteRAMlist.get(randPos);
         os.testOut("Prozess " + pid + ": Random-Algorithmus hat pte ausgewählt: " + pte.virtPageNum);
-        pteRAMlist.remove(rand);
-        pteRAMlist.add(newPte);
+        pteRAMlist.remove(randPos);
+        pteRAMlist.add(randPos, newPte);
         return pte;
     }
 
